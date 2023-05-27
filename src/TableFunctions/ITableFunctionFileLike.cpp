@@ -13,6 +13,7 @@
 #include <Interpreters/evaluateConstantExpression.h>
 
 #include <Formats/FormatFactory.h>
+#include <IO/Archives/TarArchiveReader.h>
 
 namespace DB
 {
@@ -26,6 +27,7 @@ namespace ErrorCodes
 
 void ITableFunctionFileLike::parseFirstArguments(const ASTPtr & arg, const ContextPtr &)
 {
+    TarArchiveReader t;
     String path = checkAndGetLiteralArgument<String>(arg, "source");
     size_t pos = path.find(" :: ");
     if (pos == String::npos) {
