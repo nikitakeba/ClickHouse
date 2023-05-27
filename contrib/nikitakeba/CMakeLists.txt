@@ -1,6 +1,5 @@
 add_library(_nikitakeba
     "src/nikitakeba.cpp"
-    "include/nikitakeba.h"
 )
 
 target_include_directories(_nikitakeba PUBLIC include)

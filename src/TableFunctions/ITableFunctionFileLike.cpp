@@ -14,6 +14,7 @@
 
 #include <Formats/FormatFactory.h>
 #include <IO/Archives/TarArchiveReader.h>
+#include <iostream>
 
 namespace DB
 {
@@ -28,6 +29,7 @@ namespace ErrorCodes
 void ITableFunctionFileLike::parseFirstArguments(const ASTPtr & arg, const ContextPtr &)
 {
     TarArchiveReader t;
+    std::cout << "NIKITAKEBA" <<  t.n.getNum() << std::endl;
     String path = checkAndGetLiteralArgument<String>(arg, "source");
     size_t pos = path.find(" :: ");
     if (pos == String::npos) {
